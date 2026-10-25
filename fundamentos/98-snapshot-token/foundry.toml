@@ -1,0 +1,19 @@
+# Configuración de Foundry para el proyecto 98-snapshot-token.
+# Las dependencias (forge-std y OpenZeppelin v5.1) se comparten en ../lib
+# para no duplicarlas en cada proyecto de la categoría "fundamentos".
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+libs = ["../lib"]
+solc_version = "0.8.24"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+remappings = [
+  "forge-std/=../lib/forge-std/src/",
+  "@openzeppelin/contracts/=../lib/openzeppelin-contracts/contracts/",
+]
+
+[fuzz]
+runs = 256

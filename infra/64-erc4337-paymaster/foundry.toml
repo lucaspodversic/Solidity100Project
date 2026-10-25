@@ -1,0 +1,20 @@
+# Configuración de Foundry para este proyecto.
+# Las dependencias (forge-std y OpenZeppelin 5.1) se comparten en ../lib.
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+libs = ["../lib"]
+solc_version = "0.8.24"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+# via_ir evita "stack too deep" en handleOps (muchas variables locales).
+via_ir = true
+remappings = [
+  "forge-std/=../lib/forge-std/src/",
+  "@openzeppelin/contracts/=../lib/openzeppelin-contracts/contracts/",
+]
+
+[fuzz]
+runs = 256
